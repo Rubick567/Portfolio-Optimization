@@ -18,3 +18,28 @@ Before I started optimizing the real stock data in Nasdaq, I planned to create a
 portfolio maximization problem of Section 8.1 (in "Practical Management Science Six Edition") using Solver. I made sure I
 got the same answer both in Excel solver and in Gurobi. This model validation step is key to solving this project efficiently (it will save much troubleshooting if I run into errors later), and is even more critical when model building
 in my further career.
+
+## MySQL
+The following is the part of quries I used to create a database to support my R and Python programs, which I can also do using MySQL WorkBench.
+```
+create database nasdaq;
+use nasdaq;
+create table cov (
+stock1 varchar(10),
+stock2 varchar(10),
+covariance double
+);
+create table r (
+stock varchar(10),
+meanReturn double
+);
+create table portfolio (
+expReturn double,
+expRisk double
+);
+```
+## R
+First, I calculated a correlation or covariance matrix, Q. I also calculated
+a vector consisting of the mean return of each stock, r. I stored these in two
+separate tables.
+variances to compute the portfolio variance. Since I had already calculated the covariance matrix cov(), I didn't need to calculate a correlation matrix cor().
