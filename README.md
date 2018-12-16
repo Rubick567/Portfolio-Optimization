@@ -47,3 +47,8 @@ variances to compute the portfolio variance. Since I had already calculated the 
 and cov tables, and any other tables I saw as appropriate.
 * The trick here is that when generating many insert statements, there was considerable overhead with each and every dbSendQuery call. I was able to optimized this process by reducing this step by half by
 uploading just the upper or lower triangular matrix, and then reconstructing the remaining values on demand in Python, since the matrix is symmetric. 
+
+## Python
+* Since I already had a prototype model created by gurobi, the rest of the work is to modify the model and make it fits the real-world data set.
+* One advantage here is that I didn’t have to reconstruct the Q matrix in my code since I just read the melted version created in R and had written it to my database.
+* Once the gurobi optimization model worked, I could plug a range of return targets(with the lower bound being the minimum return within the minimum risk rate and the upper bound being the highest expected return among the basket of stocks) and get the related expected risk rate through the objective function.
