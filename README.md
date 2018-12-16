@@ -52,3 +52,8 @@ uploading just the upper or lower triangular matrix, and then reconstructing the
 * Since I already had a prototype model created by gurobi, the rest of the work is to modify the model and make it fits the real-world data set.
 * One advantage here is that I didn’t have to reconstruct the Q matrix in my code since I just read the melted version created in R and had written it to my database.
 * Once the gurobi optimization model worked, I could plug a range of return targets(with the lower bound being the minimum return within the minimum risk rate and the upper bound being the highest expected return among the basket of stocks) and get the related expected risk rate through the objective function.
+* At last, I wrote these pairs of values to the portfolio table created in MySQL above.
+
+## Wrapping Up
+Write a short R-Markdown notebook to connect to my database, read the (x,y) values from the portfolio table, and plot them in a graph. I also added some commentaries on the work has been done so far.
+
