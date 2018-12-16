@@ -39,11 +39,11 @@ expRisk double
 );
 ```
 ## R
-First, I calculated a correlation or covariance matrix, Q. I also calculated
+* First, I calculated a correlation or covariance matrix, Q. I also calculated
 a vector consisting of the mean return of each stock, r. I stored these in two
 separate tables.
 variances to compute the portfolio variance. Since I had already calculated the covariance matrix cov(), I didn't need to calculate a correlation matrix cor().
-Using the database functionality in the R Package RMySQL (and possibly the melt function in the reshape2 package), I connected to MySQL database, and populated your r
+* Using the database functionality in the R Package RMySQL (and possibly the melt function in the reshape2 package), I connected to MySQL database, and populated your r
 and cov tables, and any other tables I saw as appropriate.
-The trick here is that when generating many insert statements, there was considerable overhead with each and every dbSendQuery call. I was able to optimized this process by reducing this step by half by
-uploading just the upper or lower triangular matrix, and then reconstructing the remaining values on demand in Python, since the matrix is symmetric. 
+* The trick here is that when generating many insert statements, there was considerable overhead with each and every dbSendQuery call. I was able to optimized this process by reducing this step by half by
+uploading just the upper or lower triangular matrix, and then reconstructing the remaining values on demand in Python, since the matrix is symmetric. 
